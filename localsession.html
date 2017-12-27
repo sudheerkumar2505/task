@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+$(document).ready(function () {
+    function init() {
+        if (localStorage["first"]) {
+            $('#first').val(localStorage["first"]);
+        }
+        if (localStorage["last"]) {
+            $('#last').val(localStorage["last"]);
+        }
+		if (localStorage["email"]) {
+            $('#email').val(localStorage["email"]);
+        }
+    }
+	init();
+});
+
+$('.test').change(function () {
+    localStorage[$(this).attr('name')] = $(this).val();
+});
+	
+$('#localStorageTest').submit(function() {
+	localStorage.clear();
+});
+</script>
+</head>
+<body>
+<h1 style="color:blue"> LOCAL & SESSION STORAGE </h1><br>
+<label> FirstName: </label>
+<input type="text" class="test" name="first" id="first">
+<br><br>
+<label> LastName: </label>
+<input type="text" class="test" name="last" id="last">
+<br><br>
+<label> Email: </label>
+<input type="email" class="test" name="email" id="email">
+<br><br>
+<button class="btn btn-danger"> Submit </button>
+
+<script>
+var jsonObj = [];
+var jsonObj1 = [];
+var formData = JSON.stringify($("#myForm").serializeArray());
+$('.test').each(function(index,val){
+    jsonObj.push({name : $(this).attr('input')});
+});
+
+<!--$('.comment').each(function(index,element){
+ //   jsonObj1.push({id : $(this).attr('id')});
+-->
+console.log(jsonObj);
+//console.log(jsonObj1);
+$('button').click(function(){
+alert(JSON.stringify(jsonObj));
+//alert(JSON.stringify(jsonObj1));
+});
+
+</script>
+</body>
+</html>
