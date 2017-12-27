@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+
+
+  <script type="text/javascript">
+function save()
+{
+var Value1 = document.getElementById("first").value;
+var Value2 = document.getElementById("last").value;
+var Value3 = document.getElementById("email").value;
+localStorage.setItem("first", Value1);
+localStorage.setItem("last", Value2);
+localStorage.setItem("email", Value3);
+}
+</script>
+<body>
+<h1 style="color:blue"> LOCAL & SESSION STORAGE </h1><br>
+
+<label> FirstName: </label>
+<input type="text" class="test" name="first" id="first">
+<br><br>
+<label> LastName: </label>
+<input type="text" class="test" name="last" id="last">
+<br><br>
+<label> Email: </label>
+<input type="email" class="test" name="email" id="email">
+<br><br>
+<button class="btn btn-danger" onclick="save()" > Submit </button>
+<script>
+var jsonObj = [];
+//var jsonObj1 = [];
+$('.test').each(function(index,val){
+    jsonObj.push({name : $(this).attr('input')});
+});
+
+<!--$('.comment').each(function(index,element){
+ //   jsonObj1.push({id : $(this).attr('id')});
+-->
+console.log(jsonObj);
+//console.log(jsonObj1);
+$('.butn').click(function(){
+alert(JSON.stringify(jsonObj));
+//alert(JSON.stringify(jsonObj1));
+});
+</script>
+</body>
+</html>
